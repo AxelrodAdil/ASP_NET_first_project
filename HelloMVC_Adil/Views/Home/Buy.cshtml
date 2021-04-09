@@ -1,0 +1,34 @@
+﻿@model HelloMVC_Adil.Models.Purchase
+@{
+    ViewBag.Title = "Book purchases";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Покупка</title>
+</head>
+<body>
+    <div>
+        <h3>Форма оформления покупки</h3>
+
+        @using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+        {
+            @Html.Hidden("BookId", Model.BookId)
+            <table>
+                <tr>
+                    @*<input type="hidden" value="@ViewBag.BookId" name="BookId" />*@
+                    <td><p>@Html.Label("Person", "Введите имя")</p></td>
+                    <td>@Html.TextBox("Person", Model.Person)</td>
+                </tr>
+                <tr>
+                    <td><p>@Html.Label("Person", "Введите адрес")</p></td>
+                    <td>@Html.TextBox("Address", Model.Address)</td>
+                </tr>
+                <tr><td><p><input type="submit" value="Отправить" /></p></td></tr>
+            </table>
+        }
+    </div>
+</body>
+</html>
